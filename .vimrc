@@ -91,6 +91,8 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+" Switch header source
+nnoremap <silent> <F1>  :<C-u>CocCommand clangd.switchSourceHeader<CR>
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -100,6 +102,10 @@ nmap <silent> gr <Plug>(coc-references)
 
 " vim airline
 let g:airline_theme='dark'
+
+" vim bufferline
+noremap <C-left> :bprev<CR>
+noremap <C-right> :bnext<CR>
 
 
 " colorscheme
