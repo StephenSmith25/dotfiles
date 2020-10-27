@@ -13,7 +13,8 @@ Install npm
 
 Install the coc.nvim package
 
-Install clangd support
+Install coc-clangd support
 
 Install coc-python support 
 
+Install clang format

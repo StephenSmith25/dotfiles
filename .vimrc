@@ -3,7 +3,8 @@ set visualbell
 
 " if hidden is not set, TextEdit might fail
 set hidden
-
+" tab width
+set shiftwidth=4
 
 " Some servers have issues with backup files
 set nobackup
@@ -107,6 +108,16 @@ let g:airline_theme='dark'
 noremap <C-left> :bprev<CR>
 noremap <C-right> :bnext<CR>
 
+" clang format
+map <C-K> :py3f /usr/share/clang/clang-format-10/clang-format.py<cr>
+imap <C-K> <c-o>:py3f usr/share/clang/clang-format-10/clang-format.py<cr>
+
+function! FormatOnSave()
+    let l:formatdiff = 1
+    py3f /usr/share/clang/clang-format-10/clang-format.py
+endfunction
+
+autocmd BufWritePre *.h,*.cc,*.cpp call FormatOnSave()
 
 " colorscheme
 :set bg=dark
