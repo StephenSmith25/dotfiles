@@ -18,3 +18,5 @@ Install coc-clangd support
 Install coc-python support 
 
 Install clang format
+
+Install https://github.com/nanotech/jellybeans.vim

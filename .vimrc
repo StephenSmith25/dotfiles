@@ -11,7 +11,7 @@ set nobackup
 set nowritebackup
 
 set cmdheight=2
-
+set backspace=indent,eol,start
 
 set number
 
@@ -25,6 +25,8 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
+Plug 'tpope/vim-fugitive'
+
 
 " Initialize plugin system
 call plug#end()
@@ -101,26 +103,24 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" vim airline
-let g:airline_theme='dark'
 
 " vim bufferline
 noremap <C-left> :bprev<CR>
 noremap <C-right> :bnext<CR>
 
 " clang format
-map <C-K> :py3f /usr/share/clang/clang-format-10/clang-format.py<cr>
-imap <C-K> <c-o>:py3f usr/share/clang/clang-format-10/clang-format.py<cr>
+map <C-K> :py3f /usr/share/clang/clang-format-11/clang-format.py<cr>
+imap <C-K> <c-o>:py3f usr/share/clang/clang-format-11/clang-format.py<cr>
 
 function! FormatOnSave()
     let l:formatdiff = 1
-    py3f /usr/share/clang/clang-format-10/clang-format.py
+    py3f /usr/share/clang/clang-format-11/clang-format.py
 endfunction
 
 autocmd BufWritePre *.h,*.cc,*.cpp call FormatOnSave()
 
-" colorscheme
-:set bg=dark
-autocmd vimenter * colorscheme gruvbox
+
+imap <F5> <Esc>:w<CR>:!clear;python3 %<CR>
 
 
+colorscheme jellybeans
